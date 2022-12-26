@@ -1,3 +1,5 @@
+use minify_html_onepass::{Cfg, in_place_str};
+
 use std::io::Write;
 use std::path::Path;
 use std::{fs, fs::File};
@@ -19,13 +21,19 @@ fn dir_output() {
 }
 
 fn create_blocks(blocks: Box<Vec<Block>>) {
-    let mut vec: Vec<String> = Vec::new();
-    for block in blocks.iter() {
-        vec.push(create_block(block));
-    }
+    let html = create_block(blocks);
+    let html = minify(html);
 
     let mut file = File::create("./output/index.html").unwrap();
-    for s in vec {
-        file.write_all(s.as_bytes()).unwrap();
-    }
+    file.write_all(html.as_bytes()).unwrap();
+}
+
+fn minify(mut html: String) -> String {
+    let cfg = &Cfg {
+        minify_js: false,
+        minify_css: false,
+    };
+
+    let html = html.as_mut_str();
+    in_place_str(html, cfg).unwrap().to_string()
 }
