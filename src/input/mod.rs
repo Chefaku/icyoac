@@ -1,3 +1,3 @@
+pub mod block;
 pub mod read_files;
-mod vars;
-mod block;
+pub mod vars;
