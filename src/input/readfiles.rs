@@ -5,8 +5,8 @@ use serde_yaml::from_str;
 use super::vars::Vars;
 use super::block::Block;
 
-const PATH_TO_VARS: &str = "inputs/vars.yaml";
-const PATH_TO_BLOCKS: &str = "inputs/blocks.yaml";
+const PATH_TO_VARS: &str = "input/vars.yaml";
+const PATH_TO_BLOCKS: &str = "input/blocks.yaml";
 
 pub fn read() {
     readvars();

@@ -1,5 +1,6 @@
-mod inputs;
+mod input;
+mod output;
 
 fn main() {
-   inputs::readfiles::read(); 
+   input::readfiles::read(); 
 }
