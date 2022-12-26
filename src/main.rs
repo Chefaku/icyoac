@@ -1,6 +1,6 @@
 mod input;
-mod output;
+//mod output;
 
 fn main() {
-   input::readfiles::read(); 
+    let input = input::readfiles::read();
 }
