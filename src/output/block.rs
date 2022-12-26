@@ -15,6 +15,11 @@ pub fn create_block(block: &Block) -> String {
     {{#if text}}
         <p>{{text}}</p>
     {{/if}}
+    {{#if img}}
+        {{#with img}}
+            <img src="{{src}}" alt="{{alt}}">
+        {{/with}}
+    {{/if}}
     {{#if blocks}}
         <div>
             {{#each blocks}}
