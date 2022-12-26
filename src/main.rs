@@ -2,5 +2,5 @@ mod input;
 //mod output;
 
 fn main() {
-    let input = input::readfiles::read();
+    let input = input::read_files::read();
 }
