@@ -2,7 +2,7 @@ use handlebars::Handlebars;
 
 use crate::input::block::Block;
 
-pub fn create_block(block: &Block) {
+pub fn create_block(block: &Block) -> String {
     let mut reg = Handlebars::new();
 
     reg.register_template_string(
@@ -27,6 +27,5 @@ pub fn create_block(block: &Block) {
     )
     .unwrap();
 
-    let html = reg.render("block", block).unwrap();
-    println!("{}", html);
+    reg.render("block", block).unwrap()
 }
