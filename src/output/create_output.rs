@@ -5,9 +5,9 @@ use std::path::Path;
 use std::{fs, fs::File};
 
 use super::block::create_block;
-use crate::input::{block::Block, vars::Vars};
+use crate::input::{block::Block, vars::Vars, style::Style};
 
-pub fn create(vars: Box<Vars>, blocks: Box<Vec<Block>>) {
+pub fn create(vars: Box<Vars>, blocks: Box<Vec<Block>>, styles: Box<Vec<Style>>) {
     dir_output();
     create_blocks(blocks);
 }
@@ -24,8 +24,10 @@ fn create_blocks(blocks: Box<Vec<Block>>) {
     let html = create_block(blocks);
     let html = minify(html);
 
-    let mut file = File::create("./output/index.html").unwrap();
-    file.write_all(html.as_bytes()).unwrap();
+    File::create("./output/index.html")
+        .unwrap()
+        .write_all(html.as_bytes())
+        .unwrap();
 }
 
 fn minify(mut html: String) -> String {

@@ -10,7 +10,7 @@ pub fn create_block(blocks: Box<Vec<Block>>) -> String {
     reg.register_template_string(
         "block",
         r#"
-    <div id="{{id}}">
+    <div id="{{id}}" class="{{class}}">
     {{#if title}}
         <h2>{{title}}</h2>
     {{/if}}
